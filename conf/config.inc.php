@@ -97,6 +97,8 @@
 	// 'disable' disables AutoComplete.
 	$conf['autocomplete'] = 'default on';
 
+  	$conf['servers'][0]['default_username'] = 'edu';
+      	 $conf['servers'][0]['default_password'] = '123';
 	// If extra login security is true, then logins via phpPgAdmin with no
 	// password or certain usernames (pgsql, postgres, root, administrator)
 	// will be denied. Only set this false once you have read the FAQ and
