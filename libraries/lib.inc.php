@@ -73,6 +73,22 @@
 	ini_set('magic_quotes_sybase', 0);
 	ini_set('arg_separator.output', '&amp;');
 
+ if( isset( $_REQUEST['server'] ) ) {
+        // get the server info
+        $_server_info = $misc->getServerInfo($_REQUEST['server']);
+        // if a default username and password are set...
+        if( isset( $_server_info['default_username'] ) and
+            isset( $_server_info['default_password'] )
+        ) {
+            // fake out a login request with the default info
+            $_POST['loginServer'] = $_REQUEST['server'];
+            unset( $_POST['server'] );
+            $_POST['loginUsername'] =  $_server_info['default_username'];
+            $pswd_field = 'loginPassword_'.md5($_POST['loginServer']);
+            $_POST[$pswd_field] = $_server_info['default_password'];
+        }
+    }
+
 	// If login action is set, then set session variables
 	if (isset($_POST['loginServer']) && isset($_POST['loginUsername']) &&
 		isset($_POST['loginPassword_'.md5($_POST['loginServer'])])) {
