@@ -6,8 +6,7 @@
 	 *
 	 * $Id: config.inc.php-dist,v 1.55 2008/02/18 21:10:31 xzilla Exp $
 	 */
- 	$conf['servers'][0]['default_username'] = 'edu';
-       	$conf['servers'][0]['default_password'] = '123';
+ 	
 	// An example server.  Create as many of these as you wish,
 	// indexed from zero upwards.
 
