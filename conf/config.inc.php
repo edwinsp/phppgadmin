@@ -15,7 +15,7 @@
 
 	// Hostname or IP address for server.  Use '' for UNIX domain socket.
 	// use 'localhost' for TCP/IP connection on this computer
-	$conf['servers'][0]['host'] = 'http://appphppost-prypostgres.7e14.starter-us-west-2.openshiftapps.com ';
+	$conf['servers'][0]['host'] = 'http://10.130.58.176';
 
 	// Database port on server (5432 is the PostgreSQL default)
 	$conf['servers'][0]['port'] = 5432;
@@ -24,16 +24,16 @@
 	// Possible options: disable, allow, prefer, require
 	// To require SSL on older servers use option: legacy
 	// To ignore the SSL mode, use option: unspecified 'allow';
-	$conf['servers'][0]['sslmode'] = 'prefer';
+	$conf['servers'][0]['sslmode'] = 'require';
 
 	// Change the default database only if you cannot connect to template1.
 	// For a PostgreSQL 8.1+ server, you can set this to 'postgres'.
-	$conf['servers'][0]['defaultdb'] = 'sampledb';
+	$conf['servers'][0]['defaultdb'] = 'postgres';
 
 	// Specify the path to the database dump utilities for this server.
 	// You can set these to '' if no dumper is available.
-	$conf['servers'][0]['pg_dump_path'] = '/usr/bin/pg_dump';
-	$conf['servers'][0]['pg_dumpall_path'] = '/usr/bin/pg_dumpall';
+	$conf['servers'][0]['pg_dump_path'] = '/var/lib/pgsql/data';
+	$conf['servers'][0]['pg_dumpall_path'] = '/var/run/secrets/kubernetes.io/serviceaccount';
 
 	// Example for a second server (PostgreSQL for Windows)
 	$conf['servers'][1]['desc'] = 'Test Server';
@@ -97,8 +97,6 @@
 	// 'disable' disables AutoComplete.
 	$conf['autocomplete'] = 'default on';
 
-  	 $conf['servers'][0]['default_username'] = 'edu';
-      	 $conf['servers'][0]['default_password'] = '123';
 	// If extra login security is true, then logins via phpPgAdmin with no
 	// password or certain usernames (pgsql, postgres, root, administrator)
 	// will be denied. Only set this false once you have read the FAQ and
