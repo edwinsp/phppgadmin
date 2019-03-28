@@ -15,7 +15,7 @@
 
 	// Hostname or IP address for server.  Use '' for UNIX domain socket.
 	// use 'localhost' for TCP/IP connection on this computer
-	$conf['servers'][0]['host'] = 'http://10.130.58.176';
+	$conf['servers'][0]['host'] = 'https://postgresql-prypostgres.7e14.starter-us-west-2.openshiftapps.com/';
 
 	// Database port on server (5432 is the PostgreSQL default)
 	$conf['servers'][0]['port'] = 5432;
@@ -24,25 +24,28 @@
 	// Possible options: disable, allow, prefer, require
 	// To require SSL on older servers use option: legacy
 	// To ignore the SSL mode, use option: unspecified 'allow';
-	$conf['servers'][0]['sslmode'] = 'require';
+	$conf['servers'][0]['sslmode'] = 'legacy';
 
 	// Change the default database only if you cannot connect to template1.
 	// For a PostgreSQL 8.1+ server, you can set this to 'postgres'.
-	$conf['servers'][0]['defaultdb'] = 'postgres';
+	$conf['servers'][0]['defaultdb'] = 'sampledb';
 
 	// Specify the path to the database dump utilities for this server.
 	// You can set these to '' if no dumper is available.
-	$conf['servers'][0]['pg_dump_path'] = '/var/lib/pgsql/data';
-	$conf['servers'][0]['pg_dumpall_path'] = '/var/run/secrets/kubernetes.io/serviceaccount';
+	$conf['servers'][0]['pg_dump_path'] = '/usr/bin/pg_dump';
+	$conf['servers'][0]['pg_dumpall_path'] = '/usr/bin/pg_dumpall';
 
 	// Example for a second server (PostgreSQL for Windows)
-	$conf['servers'][1]['desc'] = 'Test Server';
-	$conf['servers'][1]['host'] = '127.0.0.1';
+	$conf['servers'][1]['desc'] = 'PostgreSQL_local';
+	$conf['servers'][1]['host'] = 'localhost';
 	$conf['servers'][1]['port'] = 5432;
 	$conf['servers'][1]['sslmode'] = 'allow';
 	$conf['servers'][1]['defaultdb'] = 'template1';
-	$conf['servers'][1]['pg_dump_path'] = 'C:\\Program Files\\PostgreSQL\\8.0\\bin\\pg_dump.exe';
-	$conf['servers'][1]['pg_dumpall_path'] = 'C:\\Program Files\\PostgreSQL\\8.0\\bin\\pg_dumpall.exe';
+	//$conf['servers'][1]['pg_dump_path'] = 'C:\\Program Files\\PostgreSQL\\8.0\\bin\\pg_dump.exe';
+	//$conf['servers'][1]['pg_dumpall_path'] = 'C:\\Program Files\\PostgreSQL\\8.0\\bin\\pg_dumpall.exe';
+
+	$conf['servers'][1]['pg_dump_path'] = '/usr/bin/pg_dump';
+	$conf['servers'][1]['pg_dumpall_path'] = '/usr/bin/pg_dumpall';
 
 
 	/* Groups definition */
