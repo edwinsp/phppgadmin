@@ -15,7 +15,8 @@
 
 	// Hostname or IP address for server.  Use '' for UNIX domain socket.
 	// use 'localhost' for TCP/IP connection on this computer
-	$conf['servers'][0]['host'] = 'jws-app-postgresql';
+	$conf['servers'][0]['host'] = 'jws31-tomcat8-postgresql-persistent-s2i
+										';
 
 	// Database port on server (5432 is the PostgreSQL default)
 	$conf['servers'][0]['port'] = 5432;
